@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tic-Tac-Toe AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Tic-Tac-Toe <span>vs AI</span></h1>
+
+    <div class="options">
+      <label>
+        Difficulty
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard" selected>Unbeatable</option>
+        </select>
+      </label>
+      <label><input type="checkbox" id="ai-first"> AI goes first</label>
+    </div>
+
+    <p id="status" aria-live="polite">Your turn. You are X.</p>
+
+    <div id="board" role="grid" aria-label="Game board"></div>
+
+    <div class="score">
+      <div><strong id="wins">0</strong><small>You</small></div>
+      <div><strong id="draws">0</strong><small>Draws</small></div>
+      <div><strong id="losses">0</strong><small>AI</small></div>
+    </div>
+
+    <button id="new-game">New game</button>
+  </main>
+
+  <script src="ai.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f4f1ea;
+  --card: #fffdf8;
+  --ink: #2b2a33;
+  --muted: #7a7684;
+  --x: #e0533d;
+  --o: #2f7ea8;
+  --line: #e2ddd2;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+main {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: center;
+}
+
+h1 { font-size: 1.7rem; }
+h1 span { color: var(--muted); font-weight: 400; }
+
+.options {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 0.95rem;
+}
+.options label { display: flex; align-items: center; gap: 0.4rem; }
+select { font: inherit; padding: 0.2rem 0.4rem; border-radius: 6px; border: 1px solid var(--line); }
+
+#status { min-height: 1.5em; font-weight: 600; }
+
+#board {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  font: inherit;
+  font-size: clamp(2.5rem, 14vw, 4rem);
+  font-weight: 800;
+  border: none;
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: 0 2px 0 var(--line);
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+.cell:hover:enabled { transform: translateY(-2px); }
+.cell:disabled { cursor: default; }
+.cell.x { color: var(--x); }
+.cell.o { color: var(--o); }
+.cell.win { background: #fbe7a1; }
+
+.score {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 8px;
+}
+.score div { background: var(--card); border-radius: 10px; padding: 0.5rem; }
+.score strong { display: block; font-size: 1.4rem; }
+.score small { color: var(--muted); }
+
+#new-game {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.6rem 1.6rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  cursor: pointer;
+}
+#new-game:hover { opacity: 0.9; }
